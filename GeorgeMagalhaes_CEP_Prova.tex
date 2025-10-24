@@ -1,0 +1,134 @@
+
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{lmodern}
+\usepackage{parskip}
+\usepackage{graphicx}
+\usepackage{float}
+
+\geometry{a4paper, margin=2.5cm}
+\titleformat{\section}{\normalfont\Large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+\setstretch{1.5}
+
+\title{Prova 1 - Controle Estatístico de Processo (CEP)}
+\author{George Magalhães - Matrícula 202066197 - Engenharia de Produção - UnB}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{Definição do Problema}
+
+\subsection*{1. Qual é a descrição do problema?}
+O problema está inserido em um contexto industrial onde o controle de qualidade é essencial para garantir a conformidade dos produtos com os requisitos dos clientes. O objetivo do monitoramento estatístico é acompanhar o desempenho do processo produtivo ao longo do tempo, identificando variações que possam comprometer a qualidade. O uso de ferramentas de CEP permite detectar desvios e implementar ações corretivas, promovendo a estabilidade e a melhoria contínua do processo.
+
+Este relatório apresenta uma análise de um conjunto de dados de manufatura, que simula dados reais coletados de um processo de manufatura. O conjunto de dados foi projetado para explorar as relações entre vários parâmetros do processo e a qualidade do produto. Ele contém variáveis de características que representam as condições do processo e uma variável-alvo que representa a classificação de qualidade dos itens fabricados.
+
+\subsection*{2. Você tem premissas ou hipóteses sobre o problema? Quais?}
+Assume-se que o processo de fabricação está sujeito a variações naturais (causas comuns) e que os dados foram coletados em condições padronizadas. Espera-se que, na ausência de causas especiais, o processo apresente comportamento estável e previsível. Também se presume que os operadores seguem procedimentos definidos e que os equipamentos estão calibrados.
+
+A hipótese é que a métrica de transformação de materiais, que é calculada como o cubo da temperatura menos o quadrado da pressão, que fornece insights sobre a dinâmica da transformação de materiais, não está sob controle.
+
+\subsection*{3. Que restrições ou condições foram impostas para selecionar os dados?}
+Os dados foram coletados em amostras periódicas, com tamanho fixo de subgrupos, respeitando intervalos regulares de tempo. A amostragem foi realizada durante o turno de produção, considerando apenas peças produzidas sob condições normais de operação. Foram excluídas amostras com interferência externa ou falhas operacionais.
+
+\subsection*{4. Descreva o seu dataset (atributos, dimensões, características, etc.)}
+O conjunto de dados contém 3957 observações. As variáveis medidas incluem:
+
+\begin{itemize}
+
+\item \textbf{Temperatura (°C):} representa a temperatura durante o processo de fabricação, medida em graus Celsius. A temperatura desempenha um papel crítico em muitos processos de fabricação, influenciando as propriedades dos materiais e a qualidade do produto.
+
+\item \textbf{Pressão (kPa):} a pressão aplicada durante o processo de fabricação, medida em quilopascais (kPa). A pressão pode afetar a transformação do material e o resultado geral do processo de fabricação.
+
+\item \textbf{Temperatura x Pressão:} esta característica é um termo de interação entre temperatura e pressão, que captura o efeito combinado desses dois parâmetros do processo.
+
+\item \textbf{Métrica de Fusão de Material:} métrica derivada calculada como a soma do quadrado da temperatura e do cubo da pressão. Representa uma medição relacionada à fusão de materiais durante o processo de fabricação.
+
+\item \textbf{Métrica de Transformação de Material:} métrica derivada calculada como o cubo da temperatura menos o quadrado da pressão. Ela fornece insights sobre a dinâmica da transformação de materiais.
+
+\item \textbf{Classificação de Qualidade:} a variável-alvo, "Classificação de Qualidade", representa a classificação geral da qualidade dos itens produzidos. A qualidade é um aspecto crucial da fabricação, e essa classificação serve como uma medida da qualidade do produto final.
+
+\end{itemize}
+
+\section{Respostas às Questões Teóricas}
+
+\subsection*{Questão 1 Qual a diferença entre limites de controle e limites de especificação?}
+
+Os \textbf{limites de controle} são calculados com base nos dados reais do processo e representam a \textit{variabilidade natural} do processo quando ele está sob controle estatístico. Eles são usados para \textit{monitorar} o desempenho do processo ao longo do tempo e identificar \textit{causas especiais de variação}.
+
+Já os \textbf{limites de especificação} são definidos externamente, geralmente pelo cliente ou pelo projeto, e representam os \textit{requisitos de qualidade} que o produto deve atender. Eles indicam os \textit{valores máximos e mínimos aceitáveis} para uma característica do produto.
+
+\textbf{Diferenças fundamentais:}
+\begin{itemize}
+    \item \textbf{Origem}: Limites de controle vêm dos dados do processo; limites de especificação vêm dos requisitos do produto.
+    \item \textbf{Propósito}: Controle = monitorar o processo; Especificação = garantir conformidade do produto.
+    \item \textbf{Natureza}: Controle é estatística; Especificação é engenharia.
+\end{itemize}
+
+\subsection*{Questão 2 Por que utilizamos a Carta X-barra e R em conjunto?}
+
+A \textbf{Carta X-barra} monitora a \textit{tendência central} (média) do processo, enquanto a \textbf{Carta R} monitora a \textit{variabilidade} (amplitude) dentro dos subgrupos.
+
+Usamos ambas porque um processo pode ter uma média estável, mas uma variabilidade crescente — o que pode comprometer a qualidade. Monitorar os dois aspectos simultaneamente permite uma \textit{visão completa} do comportamento do processo e aumenta a \textit{eficácia na detecção de problemas}.
+
+\subsection*{Questão 3 O que significa um processo estar ``sob controle estatístico''?}
+
+Um processo está \textbf{sob controle estatístico} quando \textit{todas as variações observadas são causadas por fatores comuns}, ou seja, \textit{inerentes ao próprio processo}. Não há presença de \textit{causas especiais} que indiquem instabilidade.
+
+\textbf{Implicações:}
+\begin{itemize}
+    \item O processo é \textit{previsível}.
+    \item Pode-se confiar nos dados para tomar decisões.
+    \item É possível \textit{melhorar o processo} com métodos de melhoria contínua, pois ele está estável.
+\end{itemize}
+
+\subsection*{Questão 4 Se um ponto está fora dos limites de controle, mas dentro dos limites de especificação, o que isso indica?}
+
+Essa situação indica que o processo \textbf{não está sob controle estatístico}, pois houve uma \textit{variação incomum} (fora dos limites de controle), mesmo que o produto ainda esteja \textit{dentro das especificações}.
+
+\textbf{Implicações:}
+\begin{itemize}
+    \item O produto pode estar conforme, mas o processo está instável.
+    \item Há risco de que futuras peças saiam fora das especificações.
+    \item É necessário investigar a causa especial da variação para \textit{evitar problemas futuros}.
+\end{itemize}
+
+\section{Detalhamento do Problema}
+
+\subsection*{Tabela com os valores calculados (X, R, limites de controle)}
+
+\begin{table}[H]
+    \centering
+    \caption{Valores calculados (X, R, limites de controle)}
+    \label{tab:valores_x_r}
+    \begin{tabular}{|c|c|}
+    \hline
+         Descrição & Valor \\ \hline
+         X & 10.036.453,55 \\ \hline
+         R & 25.997.879,91 \\ \hline
+         Limite Superior & 19.976.671,13 \\ \hline
+         Limite Inferior & 99.563,39 \\ \hline
+     \end{tabular}
+\end{table}
+
+\subsection*{Gráficos das cartas de controle}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{xr_grafico.png}
+    \caption{Gráficos das cartas de controle X e R}
+    \label{fig:placeholder}
+\end{figure}
+
+\subsection*{Lista de pontos fora de controle identificados}
+
+\subsection*{Análise do Problema}
+
+\end{document}
