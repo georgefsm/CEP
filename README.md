@@ -19,6 +19,7 @@ O objetivo da avaliação era demonstrar a compreensão teórica e a capacidade 
 
 .
 ├── CEP - Prova 1.ipynb
+├── GeorgeMagalhaes_CEP_Prova.tex
 ├── manufacturing.csv
 ├── manufacturing-data-for-polynomial-regression-metadata.json
 └── README.md
