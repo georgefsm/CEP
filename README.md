@@ -38,10 +38,10 @@ Este arquivo é o relatório final submetido pelo aluno George Magalhães[cite: 
      O foco da análise foi a "Métrica de Transformação de Material", cuja hipótese era de que não estava sob controle[cite: 15, 17, 32].
      O relatório inclui as cartas X-barra e R para esta métrica (Figura 1) [cite: 122], com a conclusão "Not In Control"[cite: 83].
 
-### 3. `analise_cep.py` (Script Python)
+### 2. `analise_cep.py` (Script Python)
 
  (Arquivo hipotético baseado nos entregáveis da prova)
  Este script conteria o código Python usado para realizar os cálculos estatísticos (médias, amplitudes, limites de controle) e gerar os gráficos, conforme solicitado na "Trilha de Passos" do enunciado[cite: 353].
 
-### 4. `xr_grafico.png` (Gráficos)
+### 3. `xr_grafico.png` (Gráficos)
 
