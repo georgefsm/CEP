@@ -24,15 +24,3 @@ O objetivo da avaliação era demonstrar a compreensão teórica e a capacidade 
 └── README.md
 
 ````
-## Descrição dos Arquivos
-
-### 1. `projeto_CEP.pdf` (O Relatório de Resposta)
-
-Este arquivo é o relatório final submetido pelo aluno George Magalhães. Ele contém:
-
- Definição do Problema: Descreve o problema analisado, hipóteses e o dataset.
- Respostas às Questões Teóricas: Contém as respostas para as quatro questões teóricas propostas no enunciado.
- Detalhamento da Análise Prática:
-     A análise foi realizada sobre um conjunto de dados de manufatura diferente, contendo 3957 observações com variáveis como "Temperatura" e "Pressão".
-     O foco da análise foi a "Métrica de Transformação de Material", cuja hipótese era de que não estava sob controle.
-     O relatório inclui as cartas X-barra e R para esta métrica (Figura 1), com a conclusão "Not In Control".
